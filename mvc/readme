@@ -1,5 +1,5 @@
 ABAP Project: ZRENANTESTE2
-This is an ABAP project example demonstrating the use of interfaces, classes, and unit testing. The project includes a real model, a mock model, a controller, and a view to manage and display system messages.
+This is an ABAP project example demonstrating the use of interfaces, classes, unit testing, and MVC Pattern. The project includes a real model, a mock model, a controller, and a view to manage and display system messages.
 
 Project Structure
 The project consists of the following components:
@@ -31,7 +31,7 @@ Example Code
 Here’s a basic example of how the mock model is used to provide data:
 
 abap
-Copiar código
+
 DATA(o_fake_model) = NEW lcl_model_fake( ).
 DATA(o_controller) = NEW lcl_controller( o_fake_model ).
 DATA(lt_t100) = o_controller->select_t100( ).
