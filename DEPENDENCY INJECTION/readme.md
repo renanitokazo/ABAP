@@ -2,6 +2,8 @@
 
 ## Overview
 
+![image](https://github.com/user-attachments/assets/5f922dd1-68e4-4cbe-8de8-0b329f5426a3)
+
 This ABAP project showcases the application of several software design principles and patterns in the context of SAP ABAP development. The example demonstrates:
 
 - **Dependency Injection:** Injecting dependencies into classes to promote loose coupling.
@@ -95,6 +97,9 @@ To run the unit tests:
 - Ensure that the `t100` table exists in your SAP environment for the model to fetch real data.
 - The fake model (`lcl_model_fake`) is used for testing to simulate the behavior without relying on actual data.
 
+
 ---
 
 Feel free to customize this README further based on specific requirements or additional details about the project.
+
+
