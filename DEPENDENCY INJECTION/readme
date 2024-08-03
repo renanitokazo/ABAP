@@ -48,10 +48,65 @@ The view will display messages based on the model used.
 Testing:
 
 Use transaction SE24 to execute the unit tests, or navigate to the ABAP Unit Test tool.
+
 Dependencies
 ABAP development environment in SAP.
+
 Notes
 Fake Model: The fake model is used for testing and provides predefined data.
 Model Selection: The view uses the real model by default, but it can be changed to the fake model in the controller for testing.
+
 Author
 Renan Itokazo
+
+
++---------------------+
+| <<interface>>       |
+| zif_model           |
++---------------------+
+| + select_t100()     |
++---------------------+
+          ^
+          |
++---------------------+          +----------------------+
+| lcl_model           |          | lcl_model_fake        |
++---------------------+          +----------------------+
+| - constructor()     |          | - constructor()      |
+| + select_t100()     |          | + select_t100()      |
++---------------------+          +----------------------+
+          ^
+          |
+          |
++---------------------+
+| lcl_controller      |
++---------------------+
+| - o_model : REF TO |
+|   zif_model         |
++---------------------+
+| + constructor()     |
+| + select_t100()     |
++---------------------+
+          ^
+          |
++---------------------+
+| lcl_view            |
++---------------------+
+| - o_controller :    |
+|   REF TO lcl_controller |
++---------------------+
+| + constructor()     |
+| + start_of_selection()|
++---------------------+
+
++---------------------+
+| ltc_test            |
++---------------------+
+| - o_fake_model : REF|
+|   TO lcl_model_fake |
+| - o_controller : REF|
+|   TO lcl_controller |
++---------------------+
+| + setup()           |
+| + test_select_t100()|
++---------------------+
+
